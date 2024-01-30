@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('C:/Users/Andyl/OneDrive/Desktop/kittybackground.png'); /* Replace with 	your background image path */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            margin: 0;
+            padding: 50px;
+            color: white;
+        }
+
+        #question-container {
+            margin-bottom: 20px;
+        }
+
+        #question-image,
+        #question-gif,
+        #no-image {
+            width: 300px; /* Adjust the width as needed */
+        }
+
+        #question-gif,
+        #no-image {
+            display: none; /* Initially hide the GIF and the alternative image */
+        }
+
+        #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            font-size: 18px;
+            margin: 0 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="question-container">
+        <img id="question-image" src="C:/Users/Andyl/OneDrive/Desktop/kittyrose.jpg" alt="Question Image">
+        <img id="question-gif" src="C:/Users/Andyl/OneDrive/Desktop/dance.gif" alt="Question GIF">
+        <img id="no-image" src="C:/Users/Andyl/OneDrive/Desktop/kittygun.jpg" alt="Alternative Image">
+    </div>
+
+    <div id="message">My baby, will you be my Valentine?</div>
+
+    <div id="buttons">
+        <button id="yesBtn" onclick="handleYesClick()">Yes</button>
+        <button id="noBtn" onclick="handleNoClick()">No</button>
+    </div>
+
+    <script>
+        function handleYesClick() {
+            var messageElement = document.getElementById('message');
+            var imageElement = document.getElementById('question-image');
+            var gifElement = document.getElementById('question-gif');
+	    var noImageElement = document.getElementById('no-image');
+	
+
+            // Replace image with GIF
+	    noImageElement.style.display = 'none';
+            imageElement.style.display = 'none';
+            gifElement.style.display = 'inline';
+
+            messageElement.innerHTML = 'Miu said Yes! Cant wait for Vanentines Day!!!!!!';
+        }
+
+        function handleNoClick() {
+            var messageElement = document.getElementById('message');
+            var imageElement = document.getElementById('question-image');
+            var noImageElement = document.getElementById('no-image');
+            var noButton = document.getElementById('noBtn');
+
+            // Move the "No" button to a random location
+            var randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            var randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+
+            // Replace image with alternative image
+            imageElement.style.display = 'none';
+            noImageElement.style.display = 'inline';
+
+            messageElement.innerHTML = 'The "No" button is just for visuals.';
+        }
+    </script>
+
+</body>
+</html>
